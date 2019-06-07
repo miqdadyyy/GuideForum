@@ -8,6 +8,6 @@
     <title>Login</title>
 </head>
 <body>
-
+Hello from views <?php echo $name; ?> .as
 </body>
 </html>

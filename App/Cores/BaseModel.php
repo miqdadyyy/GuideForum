@@ -58,7 +58,7 @@ class BaseModel extends Database
             return "Parameter is not valid";
         }
 
-        $column = $column != null ? '' : '*';
+        $column = $column != null ? $column : '*';
         $clauses = $clauses != null ? 'WHERE ' . $clauses : '';
         $order = $order != null ? 'ORDER BY ' . $order : '';
 
@@ -69,6 +69,7 @@ class BaseModel extends Database
 
     public function select(array $columns, $clauses = '', $order = null)
     {
+        $clauses = is_numeric($clauses) ? "id = $clauses" : '';
         $column = implode(', ', $columns);
         return $this->getRows($clauses, $order, $column);
     }

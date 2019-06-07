@@ -6,9 +6,10 @@
  * Time: 0:35
  */
 
-class HomeController
+class HomeController extends BaseController
 {
     public function index(){
-        $user = new User();
+        $name = (new User())->select(['name'], 2)[0]["name"];
+        $this->view('login', compact('name'));
     }
 }
