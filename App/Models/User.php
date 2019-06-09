@@ -27,6 +27,17 @@ class User extends BaseModel
             $username = "'$username'";
             $result = $this->get("username = $username AND password = $password");
         }
+
+        if($result["message"] == 'success'){
+            $id = 1;
+            $token = CryptoHelper::getToken(64);
+//            $id = $result["data"][0]->id;
+            $result = $this->update("id = $id", [
+                'token' => $token
+            ]);
+            $result["data"] = $result["data"][0];
+            return $result;
+        }
         return $result;
     }
 

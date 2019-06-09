@@ -9,11 +9,15 @@
 class HomeController extends BaseController
 {
     public function index(){
-        $username = "miqdsad";
-        $name = "Miqdad Farcha";
-        $email = "miqdad.faraarara@asd.assd";
-        $password = "lol";
-        $user = (new User())->login($email, $password);
-        MainHelper::dj($user);
+        session_start();
+//        MainHelper::dj(CryptoHelper::getToken(64));
+        $username = "miqdadyyy";
+//        $name = "Miqdad Farcha";
+//        $email = "miqdad.faraarara@asd.assd";
+        $password = "asd";
+//        $user = (new User())->login($username, $password);
+//        $_SESSION["auth"] = $user["data"]->token;
+//        MainHelper::dj($user);
+        MainHelper::dj($_SESSION["auth"]);
     }
 }

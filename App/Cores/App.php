@@ -36,9 +36,10 @@ class App extends Base
     }
 
     public function setController(){
-        $path = '../App/Controllers/' . $this->url[0] . 'BaseController';
+        $this->url[0] = ucfirst($this->url[0]);
+        $path = '../App/Controllers/' . $this->url[0] . 'Controller.php';
         if(file_exists($path)){
-            $this->controller = $this->url[0] . 'BaseController';
+            $this->controller = $this->url[0] . 'Controller';
             unset($this->url[0]);
         } else if(!file_exists($path) && !empty($this->url[0])){
             $this->respondNotFound();
@@ -52,6 +53,10 @@ class App extends Base
         if(isset($this->url[1]) && method_exists($this->controller, $this->url[1])){
             $this->method = $this->url[1];
             unset($this->url[1]);
+        } else if (!isset($this->url[1])){
+            $this->method = 'index';
+        } else {
+            $this->respondNotFound();
         }
     }
 

@@ -122,7 +122,7 @@ class BaseModel extends Database
 
             return [
                 'message' => 'success',
-                'data' => $this->get($clauses)
+                'data' => $this->get($clauses)["data"]
             ];
         } else {
             return [

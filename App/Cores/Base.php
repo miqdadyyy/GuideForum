@@ -26,16 +26,19 @@ class Base
         $this->statusCode = $statusCode;
     }
 
-    public function respond($message){
+    public function respond($message)
+    {
         header($_SERVER['SERVER_PROTOCOL'] . $message);
         header("HTTP/1.0 $message");
 
-        render($this->getStatusCode());
+        MainHelper::renderError($this->getStatusCode());
 
         exit();
     }
 
-    public function respondNotFound(){
-        $this->setStatusCode(400)->respond("404 Not Found");
+    public function respondNotFound()
+    {
+        $this->setStatusCode(404);
+        $this->respond('404');
     }
 }

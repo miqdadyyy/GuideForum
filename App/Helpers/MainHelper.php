@@ -8,12 +8,12 @@
 
 class MainHelper
 {
-    public function render($view, array $data = []){
+    public static function renderError($view, array $data = []){
         extract($data);
-        if(is_readable('../Views/partials/' . $view . '.php')){
-            require_once '../Views/partials/' . $view . '.php';
+        if(is_readable('../App/Views/errors/' . $view . '.php')){
+            require_once '../App/Views/errors/' . $view . '.php';
         } else {
-            throw new Exception("Partial $view not available or readable");
+            throw new Exception("View $view not available or readable");
         }
     }
 
