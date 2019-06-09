@@ -80,6 +80,7 @@ class BaseModel extends Database
         $order = $order != null ? 'ORDER BY ' . $order : '';
 
         $query = "SELECT $column FROM $this->table $clauses $order";
+//        MainHelper::dj($query);
         $result = $this->db->query($query);
 
         $data = null;

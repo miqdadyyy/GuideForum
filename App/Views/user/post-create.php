@@ -37,7 +37,7 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <form method="post">
+                <form method="post" action="/dashboard/post/store">
                     <div class="col-12">
                         <div class="form-group">
                             <input class="form-control form-control-lg" type="text" name="title" id="title"

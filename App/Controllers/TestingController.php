@@ -3,11 +3,12 @@
 
 class TestingController
 {
-    public function index(){
-        User::login('miqdadyyy', 'asd');
+    public function index($request){
+        $data = (object) $request[0];
+
     }
 
     public function test($id){
-        echo json_encode($id);
+
     }
 }

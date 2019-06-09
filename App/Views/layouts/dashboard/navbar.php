@@ -19,7 +19,7 @@
         </div>
 
         <div class="nav-right text-center py-4 ">
-          <a class="btn btn-primary" href="../../user/post-create.php">Buat post</a>
+          <a class="btn btn-primary" href="/dashboard/post/create">Buat post</a>
         </div>
       </div>
     </nav>

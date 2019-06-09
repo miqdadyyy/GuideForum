@@ -23,27 +23,49 @@ class DashboardController extends BaseController
         }
     }
 
-    public function profile(){
+    public function profile()
+    {
         session_start();
         $user = User::checkToken($_SESSION["auth"]);
         $this->view('user/profile', ['title' => 'Profile', 'user' => $user]);
     }
 
-    public function post($request){
+    public function post($request)
+    {
+        if (count($request[0]) == 0) {
+            $this->respondNotFound();
+        }
+
         session_start();
         if (isset($_SESSION["auth"])) {
             $user = User::checkToken($_SESSION["auth"]);
             if ($user == null) {
                 header('Location: /login');
             } else {
-                if($request[0][0] == "create"){
+                if ($request[0][0] == "create") {
                     $this->view('user/post-create', ['title' => 'Create Post']);
+                } else if ($request[0][0] == "store") {
+                    $data = (object)$request[1];
+                    $image_path = FileHelper::uploadThumbnail($data->thumbnail);
+                    $post = Post::createPost([
+                        'title' => $data->title,
+                        'description' => $data->description,
+                        'address' => $data->address,
+                        'rating' => 0,
+                        'image_path' => $image_path,
+                        'id_category' => $data->id_category,
+                        'id_user' => $data->id_user,
+                        'created_at' => (new DateTime())->format("Y-m-d H:i:s")
+                    ]);
+                    header('Location: /dashboard');
+                } else if (is_numeric($request[0][0])) {
+                    echo "num";
+                } else {
+                    $this->respondNotFound();
                 }
             }
         } else {
             header('Location: /login');
         }
-
-//        MainHelper::dj($request[0][0] == "create");
     }
 }
