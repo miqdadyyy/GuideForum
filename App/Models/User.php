@@ -45,4 +45,24 @@ class User extends BaseModel
         $data['password'] = md5($data['password']);
         return $this->create($data);
     }
+
+    public static function checkUsername($username){
+        $user = new User();
+        $user = $user->select(null, "username = '$username'");
+        if($user["message"] == 'empty'){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public static function checkEmail($email){
+        $user = new User();
+        $user = $user->select(null, "email = '$email'");
+        if($user["message"] == 'empty'){
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

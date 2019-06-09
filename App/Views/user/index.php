@@ -6,25 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Traveller.id - Home</title>
-  <link rel="icon" href="../img/Fevicon.png" type="image/png">
-  <link rel="stylesheet" href="../vendors/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../vendors/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="../vendors/linericon/style.css">
-  <link rel="stylesheet" href="../vendors/owl-carousel/owl.theme.default.min.css">
-  <link rel="stylesheet" href="../vendors/owl-carousel/owl.carousel.min.css">
-  <link rel="stylesheet" href="../vendors/flat-icon/font/flaticon.css">
-  <link rel="stylesheet" href="../vendors/nice-select/nice-select.css">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="img/Fevicon.png" type="image/png">
+  <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="vendors/linericon/style.css">
+  <link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="vendors/flat-icon/font/flaticon.css">
+  <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="css/style.css">
 
-  <script src="../vendors/jquery/jquery-3.2.1.min.js"></script>
-  <script src="../vendors/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="../vendors/owl-carousel/owl.carousel.min.js"></script>
-  <script src="../vendors/nice-select/jquery.nice-select.min.js"></script>
-  <script src="../js/jquery.ajaxchimp.min.js"></script>
-  <script src="../js/mail-script.js"></script>
-  <script src="../js/skrollr.min.js"></script>
-  <script src="../js/main.js"></script>
+  <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="js/jquery.ajaxchimp.min.js"></script>
+  <script src="js/mail-script.js"></script>
+  <script src="js/skrollr.min.js"></script>
+  <script src="js/main.js"></script>
   <script>
   $(document).ready(function(){
     // Add smooth scrolling to all links
@@ -68,7 +68,7 @@
 
   <!--================ Header Menu Area start =================-->
   <?php
-  include_once "header.php";
+  include_once "layouts/home/header.php";
   ?>
   <!--================Header Menu Area =================-->
 
@@ -84,7 +84,7 @@
       <div class="row">
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
           <div class="card-blog">
-            <img class="card-img rounded-0" src="../img/F1.jpg" alt="">
+            <img class="card-img rounded-0" src="img/F1.jpg" alt="">
             <div class="card-blog-body">
               <a href="#">
                 <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -104,7 +104,7 @@
 
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
           <div class="card-blog">
-            <img class="card-img rounded-0" src="../img/F2.jpg" alt="">
+            <img class="card-img rounded-0" src="img/F2.jpg" alt="">
             <div class="card-blog-body">
               <a href="#">
                 <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -123,7 +123,7 @@
 
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
           <div class="card-blog">
-            <img class="card-img rounded-0" src="../img/F3.jpg" alt="">
+            <img class="card-img rounded-0" src="img/F3.jpg" alt="">
             <div class="card-blog-body">
               <a href="#">
                 <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -146,7 +146,7 @@
       <div class="row">
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
           <div class="card-blog">
-            <img class="card-img rounded-0" src="../img/F1.jpg" alt="">
+            <img class="card-img rounded-0" src="img/F1.jpg" alt="">
             <div class="card-blog-body">
               <a href="#">
                 <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -165,7 +165,7 @@
 
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
           <div class="card-blog">
-            <img class="card-img rounded-0" src="../img/F2.jpg" alt="">
+            <img class="card-img rounded-0" src="img/F2.jpg" alt="">
             <div class="card-blog-body">
               <a href="#">
                 <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -184,7 +184,7 @@
 
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
           <div class="card-blog">
-            <img class="card-img rounded-0" src="../img/F3.jpg" alt="">
+            <img class="card-img rounded-0" src="img/F3.jpg" alt="">
             <div class="card-blog-body">
               <a href="#">
                 <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -205,7 +205,7 @@
       <div class="row">
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
           <div class="card-blog">
-            <img class="card-img rounded-0" src="../img/F1.jpg" alt="">
+            <img class="card-img rounded-0" src="img/F1.jpg" alt="">
             <div class="card-blog-body">
               <a href="#">
                 <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -224,7 +224,7 @@
 
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
           <div class="card-blog">
-            <img class="card-img rounded-0" src="../img/F2.jpg" alt="">
+            <img class="card-img rounded-0" src="img/F2.jpg" alt="">
             <div class="card-blog-body">
               <a href="#">
                 <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -243,7 +243,7 @@
 
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
           <div class="card-blog">
-            <img class="card-img rounded-0" src="../img/F3.jpg" alt="">
+            <img class="card-img rounded-0" src="img/F3.jpg" alt="">
             <div class="card-blog-body">
               <a href="#">
                 <h4>Forest responds to consultation smoking in al fresco.</h4>

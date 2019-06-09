@@ -28,7 +28,7 @@
   <body>
     <!-- header -->
     <?php
-    include_once "header.php";
+    include_once "layouts/home/header.php";
     ?>
 
     <!-- content -->
@@ -73,7 +73,7 @@
 
     <!-- footer -->
     <?php
-    include_once "footer.php";
+    include_once "layouts/home/footer.php";
     ?>
     
   </body>
