@@ -16,4 +16,8 @@ class MainHelper
             throw new Exception("Partial $view not available or readable");
         }
     }
+
+    public static function dj($data){
+        echo json_encode($data);
+    }
 }

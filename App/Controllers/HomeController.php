@@ -9,7 +9,11 @@
 class HomeController extends BaseController
 {
     public function index(){
-        $name = (new User())->select(['name'], 2)[0]["name"];
-        $this->view('login', compact('name'));
+        $username = "miqdsad";
+        $name = "Miqdad Farcha";
+        $email = "miqdad.faraarara@asd.assd";
+        $password = "lol";
+        $user = (new User())->login($email, $password);
+        MainHelper::dj($user);
     }
 }

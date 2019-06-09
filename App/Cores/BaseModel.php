@@ -10,15 +10,23 @@ class BaseModel extends Database
 {
     protected $table;
     protected $db;
+    protected $columns;
+    protected $hidden;
 
     /**
      * BaseModel constructor.
      * @param $table
      */
-    public function __construct($table)
+    public function __construct($table, $columns, $hidden)
     {
         $this->db = static::getDB();
         $this->table = $table;
+        $this->columns = $columns;
+        $this->hidden = $hidden;
+    }
+
+    public function createProperty($name, $value){
+        $this->{$name} = $value;
     }
 
     public function create(array $data)
@@ -34,17 +42,26 @@ class BaseModel extends Database
         $val = implode(", ", $val);
 
         $query .= "($col) VALUES($val)";
-        if ($this->db->query($query)) {
-            return "Create data success";
-        } else {
-            return $this->db->error;
+
+        $result = $this->db->query($query);
+
+        if(!$result){
+            return [
+                'message' => $this->db->error,
+                'data' => null
+            ];
+        } else{
+            return [
+                'message' => 'success',
+                'data' => (object) $data
+            ];
         }
     }
 
     public function find($id, $column = '*')
     {
         $result = $this->getRows("id = $id", null, $column);
-        return $result ? $result[0] : [];
+        return $result;
     }
 
     public function get($clauses = null, $order = null)
@@ -64,7 +81,21 @@ class BaseModel extends Database
 
         $query = "SELECT $column FROM $this->table $clauses $order";
         $result = $this->db->query($query);
-        return $result ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+
+        $data = null;
+        if($result){
+            $data = [];
+            $message = $result->num_rows > 0 ? 'success' : 'empty';
+            foreach ($result as $res){
+                array_push($data, (object) $res);
+            }
+        } else {
+            $message = $this->db->error;
+        }
+        return [
+            'message' => $message,
+            'data' => $data
+        ];
     }
 
     public function select(array $columns, $clauses = '', $order = null)
@@ -76,6 +107,7 @@ class BaseModel extends Database
 
     public function update($clauses, array $val)
     {
+        $ids = $this->select(['id'], $clauses)["data"];
         $set_val = [];
         foreach ($val as $column => $value) {
             array_push($set_val, "$column = '$value'");
@@ -83,9 +115,20 @@ class BaseModel extends Database
         $set = implode(', ', $set_val);
         $query = "UPDATE $this->table SET $set WHERE $clauses";
         if ($this->db->query($query)) {
-            return "Update Success";
+            $data = [];
+            foreach ($ids as $id){
+                array_push($data, $this->find($id->id)["data"][0]);
+            }
+
+            return [
+                'message' => 'success',
+                'data' => $this->get($clauses)
+            ];
         } else {
-            return $this->db->error;
+            return [
+                'message' => $this->db->error,
+                'data' => null
+            ];
         }
     }
 
@@ -98,9 +141,15 @@ class BaseModel extends Database
             $query .= $clauses;
         }
         if ($this->db->query($query)) {
-            return "Delete Success";
+            return [
+                'message' => 'success',
+                'data' => null
+            ];
         } else {
-            return $this->db->error;
+            return [
+                'message' => $this->db->error,
+                'data' => null
+            ];
         }
     }
 

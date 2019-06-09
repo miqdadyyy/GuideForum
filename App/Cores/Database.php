@@ -10,10 +10,10 @@ abstract class Database
 {
     protected static function getDB()
     {
-        static $HOST = "localhost";
+        static $HOST = "128.199.196.208";
         static $USERNAME = "miqdad";
         static $PASSWORD = "monalisa123";
-        static $DATABASE = "gf";
+        static $DATABASE = "guide_forum";
 
         static $db = null;
 
