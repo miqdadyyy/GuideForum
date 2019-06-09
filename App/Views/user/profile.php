@@ -3,7 +3,9 @@
 
 <head>
     <?php
+
     include_once '../App/Views/layouts/dashboard/header.php'
+
     ?>
 </head>
 
@@ -19,15 +21,26 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
 
 <section class="section-padding bg-gray">
     <div class="container">
-        <div class="section-intro text-center pb-90px">
-            <h2>Forum Diskusi</h2>
-            <p>Fowl have fruit moveth male they are that place you will lesser</p>
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-11 col-md-11 col-sm-11 bg-white px-3 py-5">
+                <div class="blog-author">
+                    <div class="media align-items-center">
+                        <img src="<?php echo $user->photo ?>" alt="" class="px-3" width="150">
+                        <div class="media-body">
+                            <h4><b><?php echo $user->name ?></b></h4>
+                            <p>Username : <?php echo $user->username ?></p>
+                            <p>Email : <?php echo $user->email ?></p>
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-primary btn-sm mx-4 mt-2" role="button" href="#">edit profil</a>
+            </div>
         </div>
 
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                 <div class="card-blog">
-                    <img class="card-img rounded-0" src="img/F1.jpg" alt="">
+                    <img class="card-img rounded-0" src="../img/F1.jpg" alt="">
                     <div class="card-blog-body">
                         <a href="#">
                             <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -50,7 +63,7 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
 
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                 <div class="card-blog">
-                    <img class="card-img rounded-0" src="img/F2.jpg" alt="">
+                    <img class="card-img rounded-0" src="../img/F2.jpg" alt="">
                     <div class="card-blog-body">
                         <a href="#">
                             <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -72,7 +85,7 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
 
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                 <div class="card-blog">
-                    <img class="card-img rounded-0" src="img/F3.jpg" alt="">
+                    <img class="card-img rounded-0" src="../img/F3.jpg" alt="">
                     <div class="card-blog-body">
                         <a href="#">
                             <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -98,7 +111,7 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                 <div class="card-blog">
-                    <img class="card-img rounded-0" src="img/F1.jpg" alt="">
+                    <img class="card-img rounded-0" src="../img/F1.jpg" alt="">
                     <div class="card-blog-body">
                         <a href="#">
                             <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -120,7 +133,7 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
 
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                 <div class="card-blog">
-                    <img class="card-img rounded-0" src="img/F2.jpg" alt="">
+                    <img class="card-img rounded-0" src="../img/F2.jpg" alt="">
                     <div class="card-blog-body">
                         <a href="#">
                             <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -142,7 +155,7 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
 
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                 <div class="card-blog">
-                    <img class="card-img rounded-0" src="img/F3.jpg" alt="">
+                    <img class="card-img rounded-0" src="../img/F3.jpg" alt="">
                     <div class="card-blog-body">
                         <a href="#">
                             <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -166,7 +179,7 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                 <div class="card-blog">
-                    <img class="card-img rounded-0" src="img/F1.jpg" alt="">
+                    <img class="card-img rounded-0" src="../img/F1.jpg" alt="">
                     <div class="card-blog-body">
                         <a href="#">
                             <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -188,7 +201,7 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
 
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                 <div class="card-blog">
-                    <img class="card-img rounded-0" src="img/F2.jpg" alt="">
+                    <img class="card-img rounded-0" src="../img/F2.jpg" alt="">
                     <div class="card-blog-body">
                         <a href="#">
                             <h4>Forest responds to consultation smoking in al fresco.</h4>
@@ -210,7 +223,7 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
 
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
                 <div class="card-blog">
-                    <img class="card-img rounded-0" src="img/F3.jpg" alt="">
+                    <img class="card-img rounded-0" src="../img/F3.jpg" alt="">
                     <div class="card-blog-body">
                         <a href="#">
                             <h4>Forest responds to consultation smoking in al fresco.</h4>

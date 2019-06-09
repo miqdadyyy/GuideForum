@@ -20,7 +20,7 @@ class RegisterController
         if (!isset($data->username)) {
             array_push($errors, 'Username field is required');
         } else {
-            if (User::checkUsername($data->username)) {
+            if (!User::checkUsername($data->username)) {
                 array_push($errors, 'Username alerady exists');
             }
         }
@@ -28,7 +28,7 @@ class RegisterController
         if (!isset($data->email)) {
             array_push($errors, 'Email field is required');
         } else {
-            if (User::checkEmail($data->email)) {
+            if (!User::checkEmail($data->email)) {
                 array_push($errors, 'Email alerady exists');
             }
         }
@@ -38,9 +38,28 @@ class RegisterController
         }
 
         if (count($errors) > 0) {
-            header('Location: /');
+            MainHelper::dj($errors);
+//            header('Location: /');
         } else {
-            
+            $user = User::register([
+                'name' => $data->name,
+                'username' => $data->username,
+                'email' => $data->email,
+                'password' => $data->password
+            ]);
+
+            if($user["message"] == 'success'){
+                session_start();
+                if(isset($_SESSION["auth"])){
+                    User::clearToken($_SESSION["auth"]);
+                    User::login($data->username, $data->password);
+                }
+
+                User::login($data->username, $data->password);
+            } else {
+                MainHelper::dj($user["message"]);
+                // TODO: ERROR REGISTER
+            }
         }
 
     }

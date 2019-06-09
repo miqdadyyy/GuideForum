@@ -4,7 +4,7 @@
 class TestingController
 {
     public function index(){
-        echo "asdasd";
+        User::login('miqdadyyy', 'asd');
     }
 
     public function test($id){

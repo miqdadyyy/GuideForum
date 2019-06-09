@@ -9,7 +9,7 @@
 class User extends BaseModel
 {
     protected $table = 'users';
-    protected $columns = ['name', 'username', 'email', 'password', 'token'];
+    protected $columns = ['id', 'name', 'username', 'email', 'password', 'photo', 'token'];
     protected $hidden = ['password', 'token'];
 
     public function __construct()
@@ -30,12 +30,14 @@ class User extends BaseModel
         }
 
         if($result["message"] == 'success'){
-            $id = 1;
+            $id = $result["data"][0]->id;
             $token = CryptoHelper::getToken(64);
             $result = $user->update("id = $id", [
                 'token' => $token
             ]);
+            $_SESSION["auth"] = $token;
             $result["data"] = $result["data"][0];
+            header('Location: /dashboard');
             return $result;
         }
         return $result;
@@ -65,7 +67,7 @@ class User extends BaseModel
 
     public static function checkUsername($username){
         $user = new User();
-        $user = $user->select(null, "username = '$username'");
+        $user = $user->select(['id'], "username = '$username'");
         if($user["message"] == 'empty'){
             return false;
         } else {
@@ -75,11 +77,35 @@ class User extends BaseModel
 
     public static function checkEmail($email){
         $user = new User();
-        $user = $user->select(null, "email = '$email'");
+        $user = $user->select(['id'], "email = '$email'");
         if($user["message"] == 'empty'){
             return false;
         } else {
             return true;
         }
+    }
+
+    public static function checkToken($token){
+        $user = new User();
+        $user = $user->get("token = '$token'");
+        if($user["message"] == 'empty'){
+            return null;
+        } else {
+            return $user["data"][0];
+        }
+    }
+
+    public static function logout($token){
+        self::clearToken($token);
+        header('Location: /login');
+    }
+
+    public static function clearToken($token){
+        $user = new User();
+        $user->update("token = '$token'", [
+            'token' => NULL
+        ]);
+        session_start();
+        $_SESSION["auth"] = null;
     }
 }
