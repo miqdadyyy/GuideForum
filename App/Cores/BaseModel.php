@@ -75,7 +75,7 @@ class BaseModel extends Database
             return "Parameter is not valid";
         }
 
-        $column = $column != null ? $column : '*';
+        $column = $column != null ? $column : implode(", ", array_diff($this->columns, $this->hidden));
         $clauses = $clauses != null ? 'WHERE ' . $clauses : '';
         $order = $order != null ? 'ORDER BY ' . $order : '';
 
