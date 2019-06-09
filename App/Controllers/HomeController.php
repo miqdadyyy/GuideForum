@@ -17,7 +17,7 @@ class HomeController extends BaseController
         $password = "asd";
 //        $user = (new User())->login($username, $password);
 //        $_SESSION["auth"] = $user["data"]->token;
+        $user = User::findOrFail(10);
 //        MainHelper::dj($user);
-        MainHelper::dj($_SESSION["auth"]);
     }
 }

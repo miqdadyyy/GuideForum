@@ -7,7 +7,7 @@ class TestingController
         echo "asdasd";
     }
 
-    public function test(){
-        echo "kontol";
+    public function test($id){
+        echo json_encode($id);
     }
 }
