@@ -15,11 +15,10 @@
             <li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
             <li class="nav-item"><a class="nav-link" href="profil.php">Profil</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+            <div class="nav-right text-center py-4 ">
+              <a class="btn btn-primary" href="buat-post.php">Buat post</a>
+            </div>
           </ul>
-        </div>
-
-        <div class="nav-right text-center py-4 ">
-          <a class="btn btn-primary" href="buat-post.php">Buat post</a>
         </div>
       </div>
     </nav>
