@@ -6,28 +6,26 @@
  * Time: 22:39
  */
 
-class RegisterController
+class RegisterController extends BaseController
 {
     public function index($request)
     {
         $data = (object)$request[0];
         $errors = [];
-        if (!isset($data->name)) {
+        if (!isset($data->name) || strlen($data->name) == 0) {
             array_push($errors, 'Name field is required');
         }
-
-        if (!isset($data->username)) {
+        if (!isset($data->username) || strlen($data->username) == 0) {
             array_push($errors, 'Username field is required');
         } else {
-            if (!User::checkUsername($data->username)) {
+            if (User::checkUsername($data->username)) {
                 array_push($errors, 'Username alerady exists');
             }
         }
-
-        if (!isset($data->email)) {
+        if (!isset($data->email) || strlen($data->email) == 0) {
             array_push($errors, 'Email field is required');
         } else {
-            if (!User::checkEmail($data->email)) {
+            if (User::checkEmail($data->email)) {
                 array_push($errors, 'Email alerady exists');
             }
         }
@@ -37,8 +35,7 @@ class RegisterController
         }
 
         if (count($errors) > 0) {
-            MainHelper::dj($errors);
-//            header('Location: /');
+            $this->view('index', ['errors' => $errors]);
         } else {
             $user = User::register([
                 'name' => $data->name,
@@ -47,17 +44,16 @@ class RegisterController
                 'password' => $data->password
             ]);
 
-            if($user["message"] == 'success'){
+            if ($user["message"] == 'success') {
                 session_start();
-                if(isset($_SESSION["auth"])){
+                if (isset($_SESSION["auth"])) {
                     User::clearToken($_SESSION["auth"]);
                     User::login($data->username, $data->password);
                 }
 
                 User::login($data->username, $data->password);
             } else {
-                MainHelper::dj($user["message"]);
-                // TODO: ERROR REGISTER
+                $this->view('index', ['errors' => [$user["message"]]]);
             }
         }
 

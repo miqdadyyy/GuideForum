@@ -26,7 +26,6 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
         <div class="row">
             <?php foreach ($posts["data"] as $post) {
                 $post = (object) $post;
-//                print_r($post);
                 include '../App/Views/layouts/dashboard/post.php';
             } ?>
         </div>

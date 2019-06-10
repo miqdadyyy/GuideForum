@@ -1,10 +1,13 @@
 <?php
 
 
-class TestingController
+class TestingController extends BaseController
 {
     public function index($request){
-        MainHelper::dj(Comment::getCommentLengthFromPost(1));
+        $post = (object) Post::takeSome(4)["data"][3];
+        $post->comment_count = Comment::getCommentLengthFromPost($post->id);
+//        MainHelper::dj($post);
+        $this->view('user/post-detail', ['post' => $post]);
     }
 
     public function test($id){

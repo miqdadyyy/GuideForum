@@ -71,4 +71,9 @@ class Post extends BaseModel
             return $post->delete("$clausion");
         }
     }
+
+    public static function takeSome($total){
+        $post = new Post();
+        return $post->getSome($total);
+    }
 }

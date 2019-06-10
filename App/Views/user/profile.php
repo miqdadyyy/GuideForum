@@ -33,7 +33,7 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
                         </div>
                     </div>
                 </div>
-                <a class="btn btn-primary btn-sm mx-4 mt-2" role="button" href="#">edit profil</a>
+<!--                <a class="btn btn-primary btn-sm mx-4 mt-2" role="button" href="#">edit profil</a>-->
             </div>
         </div>
 

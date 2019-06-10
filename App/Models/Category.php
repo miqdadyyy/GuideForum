@@ -17,7 +17,7 @@ class Category extends BaseModel
         parent::__construct($this->table, $this->columns, $this->hidden);
     }
 
-    public function getAllCategory(){
+    public static function getAllCategory(){
         $categories = new Category();
         return $categories->get();
     }

@@ -6,11 +6,29 @@
                 <h4><?php echo $post->title ?></h4>
             </a>
             <ul class="card-blog-info">
-                <li><a href="#"><span class="align-middle"><i class="ti-notepad"></i></span><?php echo DateHelper::datetimeToString($post->created_at) ?></a>
+                <li><a href="#"><span class="align-middle"><i
+                                    class="ti-notepad"></i></span><?php echo DateHelper::datetimeToString($post->created_at) ?>
+                    </a>
                 </li>
-                <li><a href="#"><span class="align-middle"><i class="ti-comments-smiley"></i></span><?php echo $post->comment_count ?> Comments</a></li>
+                <li><a href="#"><span class="align-middle"><i
+                                    class="ti-comments"></i></span><?php echo $post->comment_count ?>
+                        Comments</a></li>
+                <br>
+                <li>
+                    <?php $fixed_rating = floor($post->rating) ?>
+                    <?php for ($i = 1;
+                    $i <= 5;
+                    $i++){ ?>
+                    <?php if ($i <= $fixed_rating) { ?>
+                        <span class="fa fa-star checked"></span>
+                    <?php } else { ?>
+                        <span class="ti ti-star checked"></span>
+                        <?php } ?>
+                    <?php } ?>
+                    <b>Rating <?php echo $post->rating ?></b>
+                </li>
             </ul>
-            <p><?php echo substr(strip_tags($post->description),0,100) ?></p>
+            <p><?php echo substr(strip_tags($post->description), 0, 100) ?>...</p>
             <br>
             <a class="button" href="#">Join Forum</a>
 

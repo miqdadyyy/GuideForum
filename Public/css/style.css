@@ -350,6 +350,7 @@ h3, .h3 {
 }
 
 .header_area.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
+  color: white !important;
   line-height: 20px;
 }
 
@@ -538,6 +539,7 @@ h3, .h3 {
     display: none;
   }
   .header_area.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
+    color: white !important;
     line-height: 40px;
   }
   .header_area.white_menu.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
@@ -2881,3 +2883,7 @@ button.button {
 
 /* footer style end
 	============================================================================================ */
+
+.errors{
+  color: red;
+}

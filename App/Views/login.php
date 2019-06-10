@@ -62,6 +62,16 @@ include_once "layouts/home/header.php";
                                 </div>
                             </div>
                         </div>
+                        <?php if (isset($errors)) { ?>
+                            <div class="errors">
+                                <ul>
+                                    <?php foreach ($errors as $error) { ?>
+                                        <li><?php echo $error ?></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        <?php } ?>
+                        <p>Tidak memiliki akun? Silahkan <a href="/#daftar">Register</a></p>
                         <div class="form-group">
                             <button class="button border-0 mt-3" type="submit">Login</button>
                         </div>

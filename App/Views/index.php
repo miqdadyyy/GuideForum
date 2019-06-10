@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Traveller.id - Home</title>
+    <title>Guide Forum - Home</title>
     <link rel="icon" href="img/Fevicon.png" type="image/png">
 
     <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
@@ -35,8 +35,9 @@ include_once "layouts/home/header.php";
 
         <div class="row align-items-center text-center text-md-left">
             <div class="col-md-6 col-lg-5 mb-5 mb-md-0">
-                <h1>Traveller.id</h1>
-                <p>Traveller.id - Forum berbagi pengalaman wisata Indonesia kepada seluruh warga dunia, untuk
+                <h1>Guide Forum</h1>
+                <p>Guide Forum - Merupakan forum untuk berbagi pengalaman wisata Indonesia kepada seluruh warga dunia,
+                    untuk
                     menunjukkan betapa indahnya Indonesia yang kita tempati ini</p>
                 <a class="button button-hero mt-4" href="#daftar">Gabung kuy</a>
             </div>
@@ -54,8 +55,8 @@ include_once "layouts/home/header.php";
     <div class="container">
         <div class="section-intro text-center pb-90px">
             <img class="section-intro-img" src="img/home/section-icon.png" alt="">
-            <h2>Apa yang akan di dapat <br> di Traveller.id </br></h2>
-            <p>Fowl have fruit moveth male they are that place you will lesser</p>
+            <h2>Apa yang akan di dapat <br> di Guide Forum </br></h2>
+            <p>Informasi tentang tips dan info tempat lainnya di Indonesia</p>
         </div>
 
         <div class="row">
@@ -65,9 +66,10 @@ include_once "layouts/home/header.php";
                         <img class="img-fluid" src="img/home/service1.png" alt="">
                     </div>
                     <div class="service-card-body">
-                        <h3>Hotel Booking</h3>
-                        <p>Great so dominion two seed give dry rule be fowl him female you will gathered creeping and
-                            created air
+                        <h3>Find and Share Information</h3>
+                        <p>
+                            Anda bisa mencari dan berbagi tentang informasi tentang tempat wisata ataupun lainnya di
+                            Indonesia
                         </p>
                     </div>
                 </div>
@@ -78,9 +80,9 @@ include_once "layouts/home/header.php";
                         <img class="img-fluid" src="img/home/service2.png" alt="">
                     </div>
                     <div class="service-card-body">
-                        <h3>Flight Booking</h3>
-                        <p>Great so dominion two seed give dry rule be fowl him female you will gathered creeping and
-                            created air
+                        <h3>Find Place</h3>
+                        <p>
+                            Cari tempat yang cocok untuk tujuanmu
                         </p>
                     </div>
                 </div>
@@ -91,9 +93,8 @@ include_once "layouts/home/header.php";
                         <img class="img-fluid" src="img/home/service3.png" alt="">
                     </div>
                     <div class="service-card-body">
-                        <h3>Destination Booking</h3>
-                        <p>Great so dominion two seed give dry rule be fowl him female you will gathered creeping and
-                            created air
+                        <h3>Discovery</h3>
+                        <p>Temukan tempat yang menarik dan bagi dengan orang lain
                         </p>
                     </div>
                 </div>
@@ -103,135 +104,15 @@ include_once "layouts/home/header.php";
 </section>
 <!--================Service Area End =================-->
 
-
-<!--================About Area Start =================-->
-<section class="bg-gray section-padding magic-ball magic-ball-about" id="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 col-md-6 mb-4 mb-md-0">
-                <div class="about-img">
-                    <img class="img-fluid" src="img/adventure-backpack-backpacker-2108845.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-lg-5 col-md-6 align-self-center about-content">
-                <h2>About<br class="d-none d-xl-block"> Traveler.id <br class="d-none d-xl-block"></h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod non corporis, delectus dolore at est
-                    inventore ipsa? Aut quasi corrupti illum delectus non dolorum omnis, beatae soluta necessitatibus
-                    repellendus ut.</p>
-                <a class="button" href="#">Learn More</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!--================About Area End =================-->
-
-<!--================Tour section Start =================-->
-<section class="section-margin pb-xl-5" id="trending">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="tour-card">
-                    <img class="card-img rounded-0" src="img/architecture-bali-clouds-1646870.jpg" alt="">
-                    <div class="tour-card-overlay">
-                        <div class="media">
-                            <div class="media-body">
-                                <h4>Bali Temple, Indonesia</h4>
-                                <small>5 days offer</small>
-                                <p>Kuta beach, bali, nusa dua etc</p>
-                            </div>
-                            <div class="media-price">
-                                <h4 class="text-primary">start from $200</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-lg-10 offset-lg-1">
-                        <div class="tour-content">
-                            <h2>Popular Traveller Place</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus aspernatur, suscipit
-                                repellendus
-                                pariatur nulla quisquam vero. Doloremque modi saepe expedita exercitationem perspiciatis
-                                tempora
-                                libero suscipit, magnam fugiat repudiandae repellendus nobis. </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tour-card">
-                    <img class="card-img rounded-0" src="img/ancient-architecture-asia-460376.jpg" alt="">
-                    <div class="tour-card-overlay">
-                        <div class="media">
-                            <div class="media-body">
-                                <h4>Thailand</h4>
-                                <small>5 days offer</small>
-                                <p>Thailand etc.</p>
-                            </div>
-                            <div class="media-price">
-                                <h4 class="text-primary">start from $350</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 col-lg-7">
-                <div class="tour-card">
-                    <img class="card-img rounded-0" src="img/ancient-architecture-art-209740.jpg" alt="">
-                    <div class="tour-card-overlay">
-                        <div class="media">
-                            <div class="media-body">
-                                <h4>Bangkok</h4>
-                                <small>5 days offer</small>
-                                <p>Bangkok </p>
-                            </div>
-                            <div class="media-price">
-                                <h4 class="text-primary">start from $370</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-5">
-                <div class="tour-card">
-                    <img class="card-img rounded-0" src="img/bridge-canal-cherry-blossom-2187424.jpg" alt="">
-                    <div class="tour-card-overlay">
-                        <div class="media">
-                            <div class="media-body">
-                                <h4>Tokyo, Japan</h4>
-                                <small>5 days offer</small>
-                                <p>Tokyo, Japan etc</p>
-                            </div>
-                            <div class="media-price">
-                                <h4 class="text-primary">start from $450</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--================Tour section End =================-->
-
-
 <!--================Daftar Package section Start =================-->
 <section class="section-margin" id="daftar">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-xl-5 align-self-center mb-5 mb-lg-0">
                 <div class="search-content">
-                    <h2>Jika anda ingi bergabung <br class="d-none d-xl-block"> atau berdiskusi mengenai<br
-                                class="d-none d-xl-block">
-                        tempat wisata silahkan bergabung dalam forum</h2>
-                    <p>Make she'd moved divided air. Whose tree that replenish tone hath own upon them it multiply was
-                        blessed
-                        is lights make gathering so day dominion so creeping</p>
+                    <h2>Join Us</h2>
+                    <p>Jika anda ingi bergabung atau berdiskusi mengenai tempat wisata silahkan bergabung dalam
+                        forum</p>
                 </div>
             </div>
             <div class="col-lg-6 col-xl-6 offset-xl-1">
@@ -265,12 +146,22 @@ include_once "layouts/home/header.php";
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                <input type="password" class="form-control" placeholder="Password" name="password"
+                                       required>
                                 <div class="input-group-append">
 
                                 </div>
                             </div>
                         </div>
+                        <?php if (isset($errors)) { ?>
+                            <div class="errors">
+                                <ul>
+                                    <?php foreach ($errors as $error) { ?>
+                                        <li><?php echo $error ?></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        <?php } ?>
                         <div class="form-group">
                             <button class="button border-0 mt-3" type="submit">Daftar</button>
                         </div>
@@ -294,68 +185,13 @@ include_once "layouts/home/header.php";
         </div>
 
         <div class="row">
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                <div class="card-blog">
-                    <img class="card-img rounded-0" src="img/F1.jpg" alt="">
-                    <div class="card-blog-body">
-                        <a href="#">
-                            <h4>Forest responds to consultation smoking in al fresco.</h4>
-                        </a>
-                        <ul class="card-blog-info">
-                            <li><a href="#"><span class="align-middle"><i class="ti-notepad"></i></span>Jan 03, 2018</a>
-                            </li>
-                            <li><a href="#"><span class="align-middle"><i class="ti-comments-smiley"></i></span>03
-                                    Comments</a></li>
-                        </ul>
-                        <p>Varius metus morbi ferme libero vehic on porta malesuada ut interdu estmales torquent
-                            vehicula
-                            parturient </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                <div class="card-blog">
-                    <img class="card-img rounded-0" src="img/F2.jpg" alt="">
-                    <div class="card-blog-body">
-                        <a href="#">
-                            <h4>Forest responds to consultation smoking in al fresco.</h4>
-                        </a>
-                        <ul class="card-blog-info">
-                            <li><a href="#"><span class="align-middle"><i class="ti-notepad"></i></span>Jan 03, 2018</a>
-                            </li>
-                            <li><a href="#"><span class="align-middle"><i class="ti-comments-smiley"></i></span>03
-                                    Comments</a></li>
-                        </ul>
-                        <p>Varius metus morbi ferme libero vehic on porta malesuada ut interdu estmales torquent
-                            vehicula
-                            parturient </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                <div class="card-blog">
-                    <img class="card-img rounded-0" src="img/F3.jpg" alt="">
-                    <div class="card-blog-body">
-                        <a href="#">
-                            <h4>Forest responds to consultation smoking in al fresco.</h4>
-                        </a>
-                        <ul class="card-blog-info">
-                            <li><a href="#"><span class="align-middle"><i class="ti-notepad"></i></span>Jan 03, 2018</a>
-                            </li>
-                            <li><a href="#"><span class="align-middle"><i class="ti-comments-smiley"></i></span>03
-                                    Comments</a></li>
-                        </ul>
-                        <p>Varius metus morbi ferme libero vehic on porta malesuada ut interdu estmales torquent
-                            vehicula
-                            parturient </p>
-                    </div>
-                </div>
-            </div>
+            <?php foreach ($posts["data"] as $post) {
+                $post = (object) $post;
+                include '../App/Views/layouts/home/post.php';
+            } ?>
         </div>
         <div class="text-center">
-            <a href="#daftar" class="button" style="margin-top: 24px;">Masuk Forum</a>
+            <a href="/dashboard" class="button" style="margin-top: 24px;">Join Forum</a>
         </div>
     </div>
 </section>

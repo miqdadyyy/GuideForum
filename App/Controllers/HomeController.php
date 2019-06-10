@@ -10,6 +10,10 @@ class HomeController extends BaseController
 {
     public function index(){
         session_start();
-        $this->view('index');
+        $posts = Post::takeSome(3);
+        foreach ($posts["data"] as $post) {
+            $post->comment_count = Comment::getCommentLengthFromPost($post->id);
+        }
+        $this->view('index', ['posts' => $posts]);
     }
 }

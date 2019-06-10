@@ -99,9 +99,9 @@ class BaseModel extends Database
         ];
     }
 
-    public function select(array $columns, $clauses = '', $order = null)
+    public function select(array $columns, $clauses = null, $order = null)
     {
-        $clauses = is_numeric($clauses) ? "id = $clauses" : '';
+        $clauses = is_numeric($clauses) ? "id = $clauses" : $clauses;
         $column = implode(', ', $columns);
         return $this->getRows($clauses, $order, $column);
     }
@@ -158,6 +158,29 @@ class BaseModel extends Database
         $query = "SELECT * FROM $this->table JOIN $tableForeign ON $this->table.id = $tableForeign.$foreignKey";
         $result = $this->db->query($query);
 //        return $query;
+        $data = null;
+        if($result){
+            $data = [];
+            $message = $result->num_rows > 0 ? 'success' : 'empty';
+            foreach ($result as $res){
+                array_push($data, (object) $res);
+            }
+        } else {
+            $message = $this->db->error;
+        }
+        return [
+            'message' => $message,
+            'data' => $data
+        ];
+    }
+
+    public function getSome($total, $order = ''){
+        if($order != ''){
+            $order = "ORDER BY $order";
+        }
+        $query = "SELECT * FROM $this->table $order LIMIT $total $order";
+        $result = $this->db->query($query);
+
         $data = null;
         if($result){
             $data = [];

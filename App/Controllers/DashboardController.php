@@ -52,10 +52,12 @@ class DashboardController extends BaseController
                 header('Location: /login');
             } else {
                 if ($request[0][0] == "create") {
-                    $this->view('user/post-create', ['title' => 'Create Post']);
+                    $categories = Category::getAllCategory();
+                    $this->view('user/post-create', ['title' => 'Create Post', 'categories' => $categories]);
                 } else if ($request[0][0] == "store") {
-                    $data = (object)$request[1];
-                    $image_path = FileHelper::uploadThumbnail($data->thumbnail);
+                    $data = (object) $request[1];
+                    $image_path = FileHelper::uploadThumbnail($_FILES["thumbnail"]);
+
                     $post = Post::createPost([
                         'title' => $data->title,
                         'description' => $data->description,
@@ -63,9 +65,10 @@ class DashboardController extends BaseController
                         'rating' => 0,
                         'image_path' => $image_path,
                         'id_category' => $data->id_category,
-                        'id_user' => $data->id_user,
+                        'id_user' => $user->id,
                         'created_at' => (new DateTime())->format("Y-m-d H:i:s")
                     ]);
+
                     header('Location: /dashboard');
                 } else if (is_numeric($request[0][0])) {
                     echo "num";

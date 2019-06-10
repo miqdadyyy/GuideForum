@@ -12,8 +12,8 @@ class FileHelper
     {
         $extensions = array("jpeg", "jpg", "png");
         $file_tmp = $file['tmp_name'];
-        $file_ext = strtolower(end(explode('.', $_FILES['image']['name'])));
-        $file_name = CryptoHelper::getToken(8) . $file_ext;
+        $file_ext = strtolower(end(explode('.', $file['name'])));
+        $file_name = CryptoHelper::getToken(8) . '.' . $file_ext;
 
         if (in_array($file_ext, $extensions) === false) {
             return null;

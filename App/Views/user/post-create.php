@@ -37,22 +37,41 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <form method="post" action="/dashboard/post/store">
+                <form method="post" action="/dashboard/post/store" enctype="multipart/form-data">
                     <div class="col-12">
                         <div class="form-group">
-                            <input class="form-control form-control-lg" type="text" name="title" id="title"
-                                   placeholder="Title">
+                            Title
+                            <input class="form-control form-control" type="text" name="title" id="title" required>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <input class="form-control" name="subject" id="subject" type="text"
-                                   placeholder="Enter label">
+                            Category
+                            <select name="id_category" id="category" class="form-control" required>
+                                <?php foreach ($categories["data"] as $category) { ?>
+                                    <?php $category = (object)$category ?>
+                                    <option value="<?php echo $category->id ?>"><?php echo $category->category ?></option>
+                                <?php } ?>
+                            </select>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <textarea id="mceEditor" name="area" placeholder="input text here"
+                            Address
+                            <input class="form-control" name="address" id="address" type="text" required>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            Thumbnail
+                            <br>
+                            <input type="file" name="thumbnail" accept="image/*" required>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            Description
+                            <textarea id="mceEditor" name="description" placeholder="input text here"
                                       style="height: 480px; resize: none;"></textarea>
                         </div>
                     </div>
@@ -62,7 +81,6 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
