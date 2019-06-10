@@ -75,11 +75,12 @@ class BaseModel extends Database
             return "Parameter is not valid";
         }
 
-        $column = $column != null ? $column : '*';
+        $column = $column != null ? $column : implode(", ", array_diff($this->columns, $this->hidden));
         $clauses = $clauses != null ? 'WHERE ' . $clauses : '';
         $order = $order != null ? 'ORDER BY ' . $order : '';
 
         $query = "SELECT $column FROM $this->table $clauses $order";
+//        MainHelper::dj($query);
         $result = $this->db->query($query);
 
         $data = null;
@@ -151,6 +152,26 @@ class BaseModel extends Database
                 'data' => null
             ];
         }
+    }
+
+    public function getJoin($foreignKey, $tableForeign){
+        $query = "SELECT * FROM $this->table JOIN $tableForeign ON $this->table.id = $tableForeign.$foreignKey";
+        $result = $this->db->query($query);
+//        return $query;
+        $data = null;
+        if($result){
+            $data = [];
+            $message = $result->num_rows > 0 ? 'success' : 'empty';
+            foreach ($result as $res){
+                array_push($data, (object) $res);
+            }
+        } else {
+            $message = $this->db->error;
+        }
+        return [
+            'message' => $message,
+            'data' => $data
+        ];
     }
 
     public function size()

@@ -14,7 +14,13 @@ require_once 'Cores/BaseModel.php';
 
 require_once 'Helpers/MainHelper.php';
 require_once 'Helpers/CryptoHelper.php';
+require_once 'Helpers/FileHelper.php';
+require_once 'Helpers/DateHelper.php';
 
-require_once 'Controllers/TestingController.php';
+//require_once 'Controllers/TestingController.php';
 
+require_once 'Models/Category.php';
+require_once 'Models/Comment.php';
+require_once 'Models/Post.php';
+require_once 'Models/Rating.php';
 require_once 'Models/User.php';

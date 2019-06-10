@@ -19,5 +19,6 @@ class MainHelper
 
     public static function dj($data){
         echo json_encode($data);
+        die();
     }
 }

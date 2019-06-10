@@ -3,11 +3,11 @@
 
 class TestingController
 {
-    public function index(){
-        echo "asdasd";
+    public function index($request){
+        MainHelper::dj(Comment::getCommentLengthFromPost(1));
     }
 
-    public function test(){
-        echo "kontol";
+    public function test($id){
+
     }
 }
