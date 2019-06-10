@@ -4,8 +4,7 @@
 class TestingController
 {
     public function index($request){
-        $data = (object) $request[0];
-
+        MainHelper::dj(Comment::getCommentLengthFromPost(1));
     }
 
     public function test($id){

@@ -11,7 +11,6 @@ class RegisterController
     public function index($request)
     {
         $data = (object)$request[0];
-        MainHelper::dj($data->name);
         $errors = [];
         if (!isset($data->name)) {
             array_push($errors, 'Name field is required');

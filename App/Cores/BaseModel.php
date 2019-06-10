@@ -154,6 +154,26 @@ class BaseModel extends Database
         }
     }
 
+    public function getJoin($foreignKey, $tableForeign){
+        $query = "SELECT * FROM $this->table JOIN $tableForeign ON $this->table.id = $tableForeign.$foreignKey";
+        $result = $this->db->query($query);
+//        return $query;
+        $data = null;
+        if($result){
+            $data = [];
+            $message = $result->num_rows > 0 ? 'success' : 'empty';
+            foreach ($result as $res){
+                array_push($data, (object) $res);
+            }
+        } else {
+            $message = $this->db->error;
+        }
+        return [
+            'message' => $message,
+            'data' => $data
+        ];
+    }
+
     public function size()
     {
         return count($this->select(['id']));

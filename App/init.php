@@ -15,6 +15,7 @@ require_once 'Cores/BaseModel.php';
 require_once 'Helpers/MainHelper.php';
 require_once 'Helpers/CryptoHelper.php';
 require_once 'Helpers/FileHelper.php';
+require_once 'Helpers/DateHelper.php';
 
 //require_once 'Controllers/TestingController.php';
 

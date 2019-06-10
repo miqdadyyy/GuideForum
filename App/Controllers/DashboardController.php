@@ -16,7 +16,11 @@ class DashboardController extends BaseController
             if ($user == null) {
                 header('Location: /login');
             } else {
-                $this->view('user/index', ['title' => 'Dashboard']);
+                $posts = Post::getAllPosts();
+                foreach ($posts["data"] as $post) {
+                    $post->comment_count = Comment::getCommentLengthFromPost($post->id);
+                }
+                $this->view('user/index', ['title' => 'Dashboard', 'posts' => $posts]);
             }
         } else {
             header('Location: /login');
@@ -27,7 +31,12 @@ class DashboardController extends BaseController
     {
         session_start();
         $user = User::checkToken($_SESSION["auth"]);
-        $this->view('user/profile', ['title' => 'Profile', 'user' => $user]);
+        $posts = Post::getOwnPosts($user->id);
+        foreach ($posts["data"] as $post) {
+            $post->comment_count = Comment::getCommentLengthFromPost($post->id);
+        }
+//        MainHelper::dj($posts);
+        $this->view('user/profile', ['title' => 'Profile', 'user' => $user, 'posts' => $posts]);
     }
 
     public function post($request)
