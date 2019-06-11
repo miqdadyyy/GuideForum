@@ -19,7 +19,12 @@ class Comment extends BaseModel
 
     public static function getCommentsFromPost($id_post){
         $comments = new Comment();
-        return $comments->get("id_post = $id_post");
+        $comments = $comments->get("id_post = $id_post");
+        foreach ($comments["data"] as $comment){
+            $comment = (object) $comment;
+            $comment->user = User::findOrFail($comment->id_user);
+        }
+        return $comments;
     }
     public static function getCommentLengthFromPost($id_post){
         return count(self::getCommentsFromPost($id_post)["data"]);

@@ -19,6 +19,12 @@ class DashboardController extends BaseController
                 $posts = Post::getAllPosts();
                 foreach ($posts["data"] as $post) {
                     $post->comment_count = Comment::getCommentLengthFromPost($post->id);
+                    $ratings = Rating::getAllRating($post->id);
+                    $total_r = 0;
+                    foreach ($ratings["data"] as $rating){
+                        $total_r += $rating->rating;
+                    }
+                    $post->rating = $ratings["message"] == "success" ? $total_r/count($ratings["data"]) : 0;
                 }
                 $this->view('user/index', ['title' => 'Dashboard', 'posts' => $posts]);
             }
@@ -34,6 +40,12 @@ class DashboardController extends BaseController
         $posts = Post::getOwnPosts($user->id);
         foreach ($posts["data"] as $post) {
             $post->comment_count = Comment::getCommentLengthFromPost($post->id);
+            $ratings = Rating::getAllRating($post->id);
+            $total_r = 0;
+            foreach ($ratings["data"] as $rating){
+                $total_r += $rating->rating;
+            }
+            $post->rating = $ratings["message"] == "success" ? $total_r/count($ratings["data"]) : 0;
         }
 //        MainHelper::dj($posts);
         $this->view('user/profile', ['title' => 'Profile', 'user' => $user, 'posts' => $posts]);
@@ -66,12 +78,25 @@ class DashboardController extends BaseController
                         'image_path' => $image_path,
                         'id_category' => $data->id_category,
                         'id_user' => $user->id,
-                        'created_at' => (new DateTime())->format("Y-m-d H:i:s")
+                        'created_at' => DateHelper::getTimeStamp()
                     ]);
 
                     header('Location: /dashboard');
                 } else if (is_numeric($request[0][0])) {
-                    echo "num";
+                    $post = Post::findPost($request[0][0]);
+                    if($post["message"] == "empty"){
+                        $this->respondNotFound();
+                    }
+                    $post = (object) $post["data"][0];
+                    $ratings = Rating::getAllRating($post->id);
+                    $total_r = 0;
+                    foreach ($ratings["data"] as $rating){
+                        $total_r += $rating->rating;
+                    }
+                    $post->rating = $ratings["message"] == "success" ? $total_r/count($ratings["data"]) : 0;
+                    $post->comments = Comment::getCommentsFromPost($post->id)["data"];
+                    $this->view('user/post-detail', ['title' => $post->title,'post' => $post, 'user' => $user]);
+
                 } else {
                     $this->respondNotFound();
                 }

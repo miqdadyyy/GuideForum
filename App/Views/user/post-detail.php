@@ -12,13 +12,13 @@
 include_once "../App/Views/layouts/dashboard/navbar.php";
 ?>
 <style>
-    .single-post img, .blog_details img{
+    .single-post img, .blog_details img {
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .title{
+    .title {
         margin-bottom: 30px;
     }
 </style>
@@ -32,13 +32,14 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
                     <div class="title">
                         <h2><?php echo $post->title ?></h2>
                         <div style="float: left">
-                            <i class="fa fa-calendar"></i>  &nbsp; <?php echo DateHelper::datetimeToString($post->created_at) ?>
+                            <i class="fa fa-calendar"></i>
+                            &nbsp; <?php echo DateHelper::datetimeToString($post->created_at) ?>
                         </div>
                         <div style="float: right">
                             <?php $fixed_rating = floor($post->rating) ?>
                             <?php for ($i = 1;
                                        $i <= 5;
-                                       $i++){ ?>
+                                       $i++) { ?>
                                 <?php if ($i <= $fixed_rating) { ?>
                                     <span class="fa fa-star checked"></span>
                                 <?php } else { ?>
@@ -60,19 +61,49 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
 
                 </div>
                 <div class="navigation-top">
+                    Rate this :
                     <div class="d-sm-flex justify-content-between text-center">
-                        <p class="like-info"><span class="align-middle"><i class="far fa-heart"></i></span> Lily and 4 people like this</p>
+                        <?php if(!Rating::checkRating($post->id, $user->id)) { ?>
+                        <form id="ratingsForm">
+                            <input type="hidden" name="id_post" id="" value="<?php echo $post->id ?>">
+                            <div class="stars">
+                                <input type="radio" name="star" class="star-1" id="star-1" value="1"/>
+                                <label class="star-1" for="star-1">1</label>
+                                <input type="radio" name="star" class="star-2" id="star-2" value="2"/>
+                                <label class="star-2" for="star-2">2</label>
+                                <input type="radio" name="star" class="star-3" id="star-3" value="3"/>
+                                <label class="star-3" for="star-3">3</label>
+                                <input type="radio" name="star" class="star-4" id="star-4" value="4"/>
+                                <label class="star-4" for="star-4">4</label>
+                                <input type="radio" name="star" class="star-5" id="star-5" value="5"/>
+                                <label class="star-5" for="star-5">5</label>
+                                <span></span>
+                            </div>
+                        </form>
+                        <?php } ?>
+                        <h5 id="success-rating" <?php echo !Rating::checkRating($post->id, $user->id) ? 'hidden' : '' ?>>Thanks for rating this post</h5>
+                        <br>
                         <ul class="social-icons">
-                            <li><p class="comment-count"><span class="align-middle"><i class="far fa-comment"></i></span><?php echo $post->comment_count ?></p></li>
+                            <li><p class="comment-count"><span class="align-middle"><i
+                                                class="far fa-comment"></i></span><?php echo count($post->comments) ?>
+                                </p></li>
                         </ul>
                     </div>
+                    <div class="comments-area">
+                        <h4><?php echo count($post->comments) ?> Response</h4>
+                        <?php foreach ($post->comments as $comment) { ?>
+                            <?php include '../App/Views/layouts/dashboard/comment.php' ?>
+                        <?php } ?>
+                    </div>
                     <div class="comment-form">
-                        <h4>Response</h4>
-                        <form class="form-contact comment_form" action="#" id="commentForm">
+                        <h4>Reply</h4>
+                        <form class="form-contact comment_form" action="/comment/store" id="commentForm" method="post">
+                            <input type="hidden" name="id_post" value="<?php echo $post->id ?>">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9" placeholder="Write Comment"></textarea>
+                                        <textarea class="form-control w-100" name="comment" id="comment" cols="30"
+                                                  rows="9" placeholder="Write Comment"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="button button-contactForm">Send Message</button>
@@ -80,52 +111,6 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
                                 </div>
                         </form>
                     </div>
-                    <div class="comments-area">
-                        <h4>05 Response</h4>
-                        <div class="comment-list bg-gray" style="margin-bottom: 48px; padding: 24px 32px; border-radius: 16px;">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="../img/blog/c1.png" alt="">
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <h5>
-                                                <a href="#">Emilly Blunt</a>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="desc" style="margin-top: 12px;">
-                                <p class="comment">
-                                    Multiply sea night grass fourth day sea lesser rule open subdue female fill which them Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                </p>
-                            </div>
-                        </div>
-                        <div class="comment-list bg-gray" style="margin-bottom: 48px; padding: 24px 32px; border-radius: 16px;">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="../img/blog/c1.png" alt="">
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <h5>
-                                                <a href="#">Emilly Blunt</a>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="desc" style="margin-top: 12px;">
-                                <p class="comment">
-                                    Multiply sea night grass fourth day sea lesser rule open subdue female fill which them Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>

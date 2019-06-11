@@ -76,4 +76,10 @@ class Post extends BaseModel
         $post = new Post();
         return $post->getSome($total);
     }
+
+    public static function findPost($id){
+        $post = new Post();
+        $post = $post->find($id);
+        return $post;
+    }
 }
