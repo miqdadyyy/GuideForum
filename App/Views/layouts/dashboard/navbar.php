@@ -15,11 +15,10 @@
             <li class="nav-item"><a class="nav-link" href="/dashboard">Beranda</a></li>
             <li class="nav-item"><a class="nav-link" href="/dashboard/profile">Profil</a></li>
             <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+            <div class="nav-right text-center py-4 ">
+              <a class="btn btn-primary" href="/dashboard/post/create">Buat post</a>
+            </div>
           </ul>
-        </div>
-
-        <div class="nav-right text-center py-4 ">
-          <a class="btn btn-primary" href="/dashboard/post/create">Buat post</a>
         </div>
       </div>
     </nav>
