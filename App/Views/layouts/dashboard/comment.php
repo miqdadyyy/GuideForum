@@ -18,4 +18,9 @@
             <?php echo $comment->comments ?>
         </p>
     </div>
+    <?php
+    if($comment->user->id == $user->id){
+        echo "<a class=\"btn btn-danger\" style=\"color: white; float: right; margin-top: -110px;\" href=\"/comment/delete/$comment->id\">Delete</a>";
+    }
+    ?>
 </div>

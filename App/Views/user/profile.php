@@ -41,7 +41,7 @@ include_once "../App/Views/layouts/dashboard/navbar.php";
             <?php foreach ($posts["data"] as $post) {
                 $post = (object) $post;
 //                print_r($post);
-                include '../App/Views/layouts/dashboard/post.php';
+                include '../App/Views/layouts/dashboard/post-profile.php';
             } ?>
         </div>
 

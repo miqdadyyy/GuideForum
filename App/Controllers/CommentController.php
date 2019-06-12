@@ -32,4 +32,22 @@ class CommentController extends BaseController
             header('Location: /login');
         }
     }
+
+    public function delete($request){
+        session_start();
+        if (isset($_SESSION["auth"])) {
+            $user = User::checkToken($_SESSION["auth"]);
+            if ($user == null) {
+                header('Location: /login');
+            } else {
+                $id = $request[0][0];
+                $comment = Comment::deleteComment("id = $id AND id_user = $user->id");
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+            }
+        } else {
+            header('Location: /login');
+        }
+
+    }
 }

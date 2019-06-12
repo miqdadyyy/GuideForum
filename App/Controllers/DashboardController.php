@@ -21,10 +21,10 @@ class DashboardController extends BaseController
                     $post->comment_count = Comment::getCommentLengthFromPost($post->id);
                     $ratings = Rating::getAllRating($post->id);
                     $total_r = 0;
-                    foreach ($ratings["data"] as $rating){
+                    foreach ($ratings["data"] as $rating) {
                         $total_r += $rating->rating;
                     }
-                    $post->rating = $ratings["message"] == "success" ? $total_r/count($ratings["data"]) : 0;
+                    $post->rating = $ratings["message"] == "success" ? $total_r / count($ratings["data"]) : 0;
                 }
                 $this->view('user/index', ['title' => 'Dashboard', 'posts' => $posts]);
             }
@@ -42,10 +42,10 @@ class DashboardController extends BaseController
             $post->comment_count = Comment::getCommentLengthFromPost($post->id);
             $ratings = Rating::getAllRating($post->id);
             $total_r = 0;
-            foreach ($ratings["data"] as $rating){
+            foreach ($ratings["data"] as $rating) {
                 $total_r += $rating->rating;
             }
-            $post->rating = $ratings["message"] == "success" ? $total_r/count($ratings["data"]) : 0;
+            $post->rating = $ratings["message"] == "success" ? $total_r / count($ratings["data"]) : 0;
         }
 //        MainHelper::dj($posts);
         $this->view('user/profile', ['title' => 'Profile', 'user' => $user, 'posts' => $posts]);
@@ -67,7 +67,7 @@ class DashboardController extends BaseController
                     $categories = Category::getAllCategory();
                     $this->view('user/post-create', ['title' => 'Create Post', 'categories' => $categories]);
                 } else if ($request[0][0] == "store") {
-                    $data = (object) $request[1];
+                    $data = (object)$request[1];
                     $image_path = FileHelper::uploadThumbnail($_FILES["thumbnail"]);
 
                     $post = Post::createPost([
@@ -82,21 +82,24 @@ class DashboardController extends BaseController
                     ]);
 
                     header('Location: /dashboard');
+                } else if (isset($request[0][1]) && $request[0][1] == "delete") {
+                    $id = $request[0][0];
+                    $post = Post::deletePost("id = $id AND id_user = $user->id");
+                    header('Location: /dashboard/profile');
                 } else if (is_numeric($request[0][0])) {
                     $post = Post::findPost($request[0][0]);
-                    if($post["message"] == "empty"){
+                    if ($post["message"] == "empty") {
                         $this->respondNotFound();
                     }
-                    $post = (object) $post["data"][0];
+                    $post = (object)$post["data"][0];
                     $ratings = Rating::getAllRating($post->id);
                     $total_r = 0;
-                    foreach ($ratings["data"] as $rating){
+                    foreach ($ratings["data"] as $rating) {
                         $total_r += $rating->rating;
                     }
-                    $post->rating = $ratings["message"] == "success" ? $total_r/count($ratings["data"]) : 0;
+                    $post->rating = $ratings["message"] == "success" ? $total_r / count($ratings["data"]) : 0;
                     $post->comments = Comment::getCommentsFromPost($post->id)["data"];
-                    $this->view('user/post-detail', ['title' => $post->title,'post' => $post, 'user' => $user]);
-
+                    $this->view('user/post-detail', ['title' => $post->title, 'post' => $post, 'user' => $user]);
                 } else {
                     $this->respondNotFound();
                 }
